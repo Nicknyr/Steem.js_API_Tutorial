@@ -16,12 +16,6 @@ class App extends Component {
     steem.api.getAccounts(['ned', 'dan'], (err, result) => {
       console.log(err, result);
     });
-
-
-  /*  steem.api.getState('/trends/funny', function(err, result) {
-	     console.log(err, result);
-    });
-  */
   }
 
 
