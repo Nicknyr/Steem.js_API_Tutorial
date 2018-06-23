@@ -1,9 +1,11 @@
+
 .utopian-container {
   background-color: #ecf0f1;
   height: auto;
   width: 90%;
   margin: auto;
-  text-align: center; }
+  text-align: center;
+}
 
 .utopian-items {
   width: 20em;
@@ -11,7 +13,10 @@
   margin: 1em;
   background-color: #3498db;
   display: inline-block;
-  vertical-align: middle; }
-  .utopian-items a {
+  vertical-align: middle;
+
+  a {
     text-decoration: none;
-    color: #f1c40f; }
+    color: #f1c40f;
+  }
+}

@@ -1,27 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import steem from 'steem';
+import dsteem from 'dsteem';
+import Utopian from './Utopian';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      userData: []
-    }
-  }
-
-  componentDidMount() {
-    // Retrieves and console.log data about the creators of Steemit
-    steem.api.getAccounts(['ned', 'dan'], (err, result) => {
-      console.log(err, result);
-    });
-  }
-
 
   render() {
     return (
-      <div className="App">
+      <div className="app-container">
+        <Utopian />
       </div>
     );
   }
