@@ -4,8 +4,8 @@ import { Client } from 'dsteem';
 import jsonQuery from 'json-query';
 import { connect } from 'react-redux';
 import { fetchUtopian } from '../actions/Utopian-action';
-import {bindActionCreators} from 'redux';
-
+import {bindActionCreators, compose, applyMiddleware, createStore} from 'redux';
+import thunk from 'redux-thunk';
 
 class Utopian extends Component {
     componentDidMount() {
@@ -15,7 +15,7 @@ class Utopian extends Component {
 
   render() {
 
-  console.log(this.props.data.utopianCash);
+  console.log(this.props.fetchUtopian);
 
       return (
         <div className="utopian-items">
@@ -49,8 +49,12 @@ class Utopian extends Component {
 })
 
 
+
 const mapStateToProps = state => ({
   data: state.utopianReducer
+  //fetchUtopian
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Utopian);
+//export default connect(mapStateToProps)(Utopian);
+//export default compose(applyMiddleware(thunk))(createStore)(Utopian);

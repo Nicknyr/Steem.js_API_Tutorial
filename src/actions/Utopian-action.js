@@ -16,7 +16,7 @@ export function fetchUtopian() {
      client.database
        .getDiscussions('hot', utopianHot)
        .then((response) => {
-         dispatch({ type: "FETCH_UTOPIAN_FULFILLED", payload: response.data })
+         dispatch({ type: "FETCH_UTOPIAN_FULFILLED", payload: response })
        })
       .catch((err) => {
         dispatch({ type: "FETCH_UTOPIAN_REJECTED", payload: err })
