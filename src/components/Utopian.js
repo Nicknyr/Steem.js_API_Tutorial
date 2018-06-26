@@ -14,30 +14,46 @@ class Utopian extends Component {
 
 
   render() {
+  const utopian = Object.keys(this.props.data.utopianCash);
+  console.log(this.props);
+  //console.log(utopian);
 
-  console.log(this.props.fetchUtopian);
+  var author = jsonQuery('[**][author]', { data: this.props.data.utopianCash }).value
+  console.log(author);
 
+  var title = jsonQuery('[**][title]', { data: this.props.data.utopianCash }).value
+  var payout = jsonQuery('[*][total_payout_value]', { data: this.props.data.utopianCash }).value
+  var postLink = jsonQuery('[*][url]', { data: this.props.data.utopianCash }).value
+  var pendingPayout = jsonQuery('[*][pending_payout_value]', { data: this.props.data.utopianCash }).value
+  var netVotes = jsonQuery('[*][net_votes]', { data: this.props.data.utopianCash }).value
+
+      let display = utopian.map((post, i) => {
       return (
         <div className="utopian-items">
           <p>
             <strong>Author:</strong>
-            {/*author[i]*/}
+            {author[i]}
           </p>
           <p>
             <strong>Title:</strong>
-
+            <a href={`https://www.steemit.com` + postLink[i]}>{title[i]}</a>
           </p>
           <p>
             <strong>Pending Payout:</strong>
-            {/*author[i]*/}
+            {pendingPayout[i]}
+          </p>
+          <p>
+            <strong>Votes: </strong>
+            {netVotes[i]}
           </p>
         </div>
       )
+    });
 
 
     return (
       <div className="utopian-container">
-        {/*page*/}
+        {display}
       </div>
     );
   }
@@ -52,9 +68,6 @@ class Utopian extends Component {
 
 const mapStateToProps = state => ({
   data: state.utopianReducer
-  //fetchUtopian
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Utopian);
-//export default connect(mapStateToProps)(Utopian);
-//export default compose(applyMiddleware(thunk))(createStore)(Utopian);
