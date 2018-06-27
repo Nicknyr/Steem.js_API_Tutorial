@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { fetchUtopian } from '../actions/Utopian-action';
 import {bindActionCreators, compose, applyMiddleware, createStore} from 'redux';
 import thunk from 'redux-thunk';
+import moment from 'moment';
 
 class Utopian extends Component {
     componentDidMount() {
@@ -30,7 +31,10 @@ class Utopian extends Component {
   var postLink = jsonQuery('[*][url]', { data: this.props.data.utopianCash }).value
   var pendingPayout = jsonQuery('[*][pending_payout_value]', { data: this.props.data.utopianCash }).value
   var netVotes = jsonQuery('[*][net_votes]', { data: this.props.data.utopianCash }).value
+  var cashoutTime = jsonQuery('[*][cashout_time]', { data: this.props.data.utopianCash }).value;
 
+  var cashout = (new Date(cashoutTime)).toString();
+  console.log(cashout);
 
       let display = utopian.map((post, i) => {
       return (
@@ -50,6 +54,11 @@ class Utopian extends Component {
           <p>
             <strong>Votes:  </strong>
             {netVotes[i]}
+          </p>
+          <p>
+            <strong>Cashout Time:   </strong>
+            {moment(cashoutTime[i]).format('MMMM Do YYYY, h:mm:ss a')}
+            {/*moment(cashoutTime[i]).endOf('day').fromNow()*/}
           </p>
         </div>
       )
