@@ -1,22 +1,50 @@
+$light-grey: #fafbfc;
+$blue: #4786f1;
+$purple: #8d378e;
+$dark-grey: #24292e;
+
 
 .utopian-container {
-  background-color: #ecf0f1;
+  background-color: white;
   height: auto;
   width: 90%;
   margin: auto;
   text-align: center;
+
+  h1 {
+    color: $purple;
+    padding-top: 1em;
+  }
 }
 
 .utopian-items {
   width: 20em;
   height: 15em;
   margin: 1em;
-  background-color: #3498db;
+  background-color: $dark-grey;
   display: inline-block;
   vertical-align: middle;
+  color: snow;
 
   a {
     text-decoration: none;
-    color: #f1c40f;
+    //color: #f1c40f;
+    color: $blue;
+    font-weight: bolder;
+
+    &:hover {
+      color: $purple;
+    }
+  }
+
+
+  p {
+    margin: 1em;
+  }
+
+
+
+  .author {
+    color: $purple;
   }
 }

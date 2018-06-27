@@ -15,35 +15,40 @@ class Utopian extends Component {
 
   render() {
   const utopian = Object.keys(this.props.data.utopianCash);
-  console.log(this.props);
-  //console.log(utopian);
+
+/*  utopian.sort((a, b) => {
+    return a.payout - b.payout;
+  });
+*/
+
+  var sortedData = utopian.sort((a, b) => Number(b.pendingPayout) - Number(a.pendingPayout));
+
 
   var author = jsonQuery('[**][author]', { data: this.props.data.utopianCash }).value
-  console.log(author);
-
   var title = jsonQuery('[**][title]', { data: this.props.data.utopianCash }).value
   var payout = jsonQuery('[*][total_payout_value]', { data: this.props.data.utopianCash }).value
   var postLink = jsonQuery('[*][url]', { data: this.props.data.utopianCash }).value
   var pendingPayout = jsonQuery('[*][pending_payout_value]', { data: this.props.data.utopianCash }).value
   var netVotes = jsonQuery('[*][net_votes]', { data: this.props.data.utopianCash }).value
 
+
       let display = utopian.map((post, i) => {
       return (
         <div className="utopian-items">
-          <p>
-            <strong>Author:</strong>
+          <p className="author">
+            <strong>Author:  </strong>
             {author[i]}
           </p>
           <p>
-            <strong>Title:</strong>
+            <strong>Title:  </strong>
             <a href={`https://www.steemit.com` + postLink[i]}>{title[i]}</a>
           </p>
           <p>
-            <strong>Pending Payout:</strong>
+            <strong>Pending Payout:  </strong>
             {pendingPayout[i]}
           </p>
           <p>
-            <strong>Votes: </strong>
+            <strong>Votes:  </strong>
             {netVotes[i]}
           </p>
         </div>
@@ -53,6 +58,7 @@ class Utopian extends Component {
 
     return (
       <div className="utopian-container">
+        <h1>Hot Posts from Utopian-io</h1>
         {display}
       </div>
     );
