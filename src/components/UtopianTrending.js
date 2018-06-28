@@ -3,30 +3,31 @@ import dsteem from 'dsteem';
 import { Client } from 'dsteem';
 import jsonQuery from 'json-query';
 import { connect } from 'react-redux';
-import { fetchUtopianHot } from '../actions/UtopianHot-action';
+import { fetchUtopianTrending } from '../actions/UtopianTrending-action';
 import {bindActionCreators, compose, applyMiddleware, createStore} from 'redux';
 import thunk from 'redux-thunk';
 import moment from 'moment';
 import Menu from '../elements/Menu';
 import Container from 'muicss/lib/react/container';
-import logo from '../elements/utopian-logo.svg'
+import { withRouter } from 'react-router-dom'
+
 
 class Utopian extends Component {
     componentDidMount() {
-      this.props.fetchUtopianHot();
+      this.props.fetchUtopianTrending();
     }
 
 
   render() {
-  const utopian = Object.keys(this.props.data.utopianCash);
+  const utopian = Object.keys(this.props.data.utopianTrendingCash);
 
-  var author = jsonQuery('[**][author]', { data: this.props.data.utopianCash }).value
-  var title = jsonQuery('[**][title]', { data: this.props.data.utopianCash }).value
-  var payout = jsonQuery('[*][total_payout_value]', { data: this.props.data.utopianCash }).value
-  var postLink = jsonQuery('[*][url]', { data: this.props.data.utopianCash }).value
-  var pendingPayout = jsonQuery('[*][pending_payout_value]', { data: this.props.data.utopianCash }).value
-  var netVotes = jsonQuery('[*][net_votes]', { data: this.props.data.utopianCash }).value
-  var cashoutTime = jsonQuery('[*][cashout_time]', { data: this.props.data.utopianCash }).value;
+  var author = jsonQuery('[**][author]', { data: this.props.data.utopianTrendingCash }).value
+  var title = jsonQuery('[**][title]', { data: this.props.data.utopianTrendingCash }).value
+  var payout = jsonQuery('[*][total_payout_value]', { data: this.props.data.utopianTrendingCash }).value
+  var postLink = jsonQuery('[*][url]', { data: this.props.data.utopianTrendingCash }).value
+  var pendingPayout = jsonQuery('[*][pending_payout_value]', { data: this.props.data.utopianTrendingCash }).value
+  var netVotes = jsonQuery('[*][net_votes]', { data: this.props.data.utopianTrendingCash }).value
+  var cashoutTime = jsonQuery('[*][cashout_time]', { data: this.props.data.utopianTrendingCash }).value;
 
   var cashout = (new Date(cashoutTime)).toString();
   console.log(cashout);
@@ -64,7 +65,6 @@ class Utopian extends Component {
       <Container>
         <div className="utopian-container">
           <Menu />
-          <img src={logo} id="logo"/>
           {display}
         </div>
       </Container>
@@ -74,13 +74,13 @@ class Utopian extends Component {
 
 
  const mapDispatchToProps = dispatch => ({
-  fetchUtopianHot: () => dispatch(fetchUtopianHot())
+  fetchUtopianTrending: () => dispatch(fetchUtopianTrending())
 })
 
 
 
 const mapStateToProps = state => ({
-  data: state.utopianHotReducer
+  data: state.utopianTrendingReducer
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Utopian);

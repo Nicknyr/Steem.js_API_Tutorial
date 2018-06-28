@@ -3,6 +3,8 @@ import './App.css';
 import steem from 'steem';
 import dsteem from 'dsteem';
 import Utopian from './Utopian';
+import UtopianTrending from './UtopianTrending';
+
 
 class App extends Component {
 
@@ -14,5 +16,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;

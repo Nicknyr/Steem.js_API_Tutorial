@@ -6,13 +6,13 @@ export default function reducer (state={
 }, action) {
 
   switch (action.type) {
-    case "FETCH_UTOPIAN": {
+    case "FETCH_UTOPIAN_HOT": {
       return {...state, fetching: true}
     }
-    case "FETCH_UTOPIAN_REJECTED": {
+    case "FETCH_UTOPIAN_HOT_REJECTED": {
       return {...state, fetching: false, error: action.payload}
     }
-    case "FETCH_UTOPIAN_FULFILLED": {
+    case "FETCH_UTOPIAN_HOT_FULFILLED": {
       return {
         ...state,
         fetching: false,

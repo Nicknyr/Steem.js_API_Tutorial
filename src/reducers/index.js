@@ -1,8 +1,10 @@
 // Combine Reducers in this file and export them
 import { combineReducers } from 'redux'
-import utopianReducer from './Utopian-reducer';
+import utopianHotReducer from './UtopianHot-reducer';
+import utopianTrendingReducer from './UtopianTrending-reducer';
 
 
 export default combineReducers({
-  utopianReducer
+  utopianHotReducer,
+  utopianTrendingReducer
 })

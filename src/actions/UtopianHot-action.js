@@ -1,9 +1,9 @@
 import dsteem from 'dsteem';
 import { Client } from 'dsteem';
 
-export function fetchUtopian() {
+export function fetchUtopianHot() {
   return function (dispatch) {
-    dispatch({ type: "FETCH_UTOPIAN" });
+    dispatch({ type: "FETCH_UTOPIAN_HOT" });
 
 
     const client = new Client('https://api.steemit.com')
@@ -16,10 +16,10 @@ export function fetchUtopian() {
      client.database
        .getDiscussions('hot', utopianHot)
        .then((response) => {
-         dispatch({ type: "FETCH_UTOPIAN_FULFILLED", payload: response })
+         dispatch({ type: "FETCH_UTOPIAN_HOT_FULFILLED", payload: response })
        })
       .catch((err) => {
-        dispatch({ type: "FETCH_UTOPIAN_REJECTED", payload: err })
+        dispatch({ type: "FETCH_UTOPIAN_HOT_REJECTED", payload: err })
       })
   }
 }
