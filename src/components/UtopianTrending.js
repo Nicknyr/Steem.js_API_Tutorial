@@ -64,7 +64,6 @@ class Utopian extends Component {
     return (
       <Container>
         <div className="utopian-container">
-          <Menu />
           {display}
         </div>
       </Container>

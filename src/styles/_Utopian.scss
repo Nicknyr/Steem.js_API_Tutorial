@@ -5,26 +5,33 @@ $dark-grey: #24292e;
 
 
 .utopian-container {
-//background-color: snow;
   height: auto;
   margin: auto;
   text-align: center;
 
   h1 {
-    color: $purple;
-    padding-top: 1em;
+    color: snow;
+    font-style: italic;
+  }
+
+  hr {
+    border-color: snow;
+    background-color: snow;
+    height: .5px;
   }
 }
 
 
 .utopian-items {
   width: 20em;
-  height: 15em;
+  height: 20em;
   margin: 1em;
   background-color: $dark-grey;
   display: inline-block;
   vertical-align: middle;
   color: snow;
+  text-align: left;
+  position: relative;
 
   a {
     text-decoration: none;
@@ -45,6 +52,17 @@ $dark-grey: #24292e;
 
 
   .author {
-    color: $purple;
+    color: $light-grey;
+    text-align: center;
+    padding-bottom: 1em;
+  }
+
+  .votes {
+    color: $light-grey;
+    bottom: 0;
+    left: auto;
+    right: auto;
+    position: absolute;
+    text-align: center;
   }
 }

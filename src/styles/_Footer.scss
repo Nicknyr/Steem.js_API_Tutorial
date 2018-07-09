@@ -1,0 +1,60 @@
+
+@media only screen and (min-width : 320px) {
+  .footer {
+    background-color: $dark-grey;
+    height: auto;
+    color: snow;
+    margin-top: 10em;
+
+    p {
+      font-size: 1.2em;
+      width: 80%;
+      height: auto;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 2em;
+      padding-bottom: 2em;
+    }
+
+    #logo {
+      height: 50px;
+      width: 50px;
+      padding: 1em;
+    }
+
+  }
+
+
+  .utopian-items .votes {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  .footer {
+    p {
+      width: 30%;
+    }
+  }
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}

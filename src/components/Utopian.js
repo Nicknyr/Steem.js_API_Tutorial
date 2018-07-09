@@ -1,3 +1,6 @@
+import Menu from '../elements/Menu';
+import Container from 'muicss/lib/react/container';
+import logo from '../elements/utopian-logo.svg'
 import React, { Component } from 'react';
 import dsteem from 'dsteem';
 import { Client } from 'dsteem';
@@ -7,9 +10,7 @@ import { fetchUtopianHot } from '../actions/UtopianHot-action';
 import {bindActionCreators, compose, applyMiddleware, createStore} from 'redux';
 import thunk from 'redux-thunk';
 import moment from 'moment';
-import Menu from '../elements/Menu';
-import Container from 'muicss/lib/react/container';
-import logo from '../elements/utopian-logo.svg'
+
 
 class Utopian extends Component {
     componentDidMount() {
@@ -34,10 +35,10 @@ class Utopian extends Component {
       let display = utopian.map((post, i) => {
       return (
         <div className="utopian-items">
-          <p className="author">
+          <h3 className="author">
             <strong>Author:  </strong>
-            {author[i]}
-          </p>
+            <a href={`https://www.steemit.com/@` + author[i]}>{author[i]}</a>
+          </h3>
           <p>
             <strong>Title:  </strong>
             <a href={`https://www.steemit.com` + postLink[i]}>{title[i]}</a>
@@ -47,13 +48,13 @@ class Utopian extends Component {
             {pendingPayout[i]}
           </p>
           <p>
-            <strong>Votes:  </strong>
-            {netVotes[i]}
-          </p>
-          <p>
             <strong>Cashout:   </strong>
             {moment(cashoutTime[i]).format('MMMM Do YYYY, h:mm:ss a')}
             {/*moment(cashoutTime[i]).endOf('day').fromNow()*/}
+          </p>
+          <p class="votes">
+            <strong>Votes:  </strong>
+            {netVotes[i]}
           </p>
         </div>
       )
@@ -63,7 +64,8 @@ class Utopian extends Component {
     return (
       <Container>
         <div className="utopian-container">
-          <Menu />
+          <h1>Top Utopian-io Posts from the Steem Blockchain</h1>
+          <hr/>
           <img src={logo} id="logo"/>
           {display}
         </div>

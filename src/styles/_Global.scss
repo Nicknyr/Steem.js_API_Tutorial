@@ -12,11 +12,38 @@ body {
 
 .mui-appbar {
   background-color: $dark-grey;
+  height: 5em;
+  text-align: center;
+  margin-bottom: 5em;
+
+  .mui-btn {
+    display: inline-block;
+    margin: 1em;
+  }
 }
+
 
 #logo {
   height: 200px;
   weight: 200px;
   display: block;
   margin: auto;
+  padding: 4em;
+}
+
+@media (max-width: 600px) {
+  .mui-appbar {
+      height: auto;
+      padding: 2em;
+      text-align: left;
+
+    .mui-btn {
+      display: block;
+      margin-bottom: 1em;
+      margin-top: 0;
+      text-align: left;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 }

@@ -8,9 +8,11 @@ class Menu extends Component {
     return (
       <div className="menu-container">
         <Appbar>
-          <Button color="accent">Hot</Button>
+          <Button variant="raised" color="accent">Hot</Button>
           <Button variant="raised" color="accent">Trending</Button>
           <Button variant="raised" color="accent">Cash</Button>
+          <Button variant="raised" color="accent">Utopian-io</Button>
+          <Button variant="raised" color="accent">Weekly Picks</Button>
         </Appbar>
       </div>
     );
