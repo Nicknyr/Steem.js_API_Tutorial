@@ -4,18 +4,22 @@ import steem from 'steem';
 import dsteem from 'dsteem';
 import Utopian from './Utopian';
 import UtopianTrending from './UtopianTrending';
-import Footer from '../elements/Footer';
-import Menu from '../elements/Menu';
+import UtopianAccount from './UtopianAccount';
+
+import { BrowserRouter as Router, Link } from 'react-router-dom';
+import Route from 'react-router-dom/Route';
 
 class App extends Component {
 
   render() {
     return (
-      <div className="app-container">
-        <Menu />
-        <Utopian />
-        <Footer />
-      </div>
+      <Router>
+        <div className="app-container">
+          <Route path="/" exact component={Utopian} />
+          <Route path="/trending" exact component={UtopianTrending} />
+          <Route path="/utopianio" exact component={UtopianAccount} />
+        </div>
+      </Router>
     );
   }
 }

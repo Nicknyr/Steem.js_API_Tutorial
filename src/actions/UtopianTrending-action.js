@@ -9,7 +9,7 @@ export function fetchUtopianTrending() {
 
     var utopianTrending = {
       tag: 'utopian-io',
-      limit: 5
+      limit: 20
     }
 
     client.database

@@ -1,4 +1,5 @@
 import Menu from '../elements/Menu';
+import Footer from '../elements/Footer';
 import Container from 'muicss/lib/react/container';
 import logo from '../elements/utopian-logo.svg'
 import React, { Component } from 'react';
@@ -10,7 +11,6 @@ import { fetchUtopianHot } from '../actions/UtopianHot-action';
 import {bindActionCreators, compose, applyMiddleware, createStore} from 'redux';
 import thunk from 'redux-thunk';
 import moment from 'moment';
-
 
 class Utopian extends Component {
     componentDidMount() {
@@ -62,6 +62,8 @@ class Utopian extends Component {
 
 
     return (
+      <div>
+      <Menu />
       <Container>
         <div className="utopian-container">
           <h1>Top Utopian-io Posts from the Steem Blockchain</h1>
@@ -70,6 +72,8 @@ class Utopian extends Component {
           {display}
         </div>
       </Container>
+      <Footer />
+      </div>
     );
   }
 }

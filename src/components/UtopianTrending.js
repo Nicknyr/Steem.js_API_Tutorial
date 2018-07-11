@@ -1,3 +1,5 @@
+import Menu from '../elements/Menu';
+import Footer from '../elements/Footer';
 import React, { Component } from 'react';
 import dsteem from 'dsteem';
 import { Client } from 'dsteem';
@@ -7,7 +9,6 @@ import { fetchUtopianTrending } from '../actions/UtopianTrending-action';
 import {bindActionCreators, compose, applyMiddleware, createStore} from 'redux';
 import thunk from 'redux-thunk';
 import moment from 'moment';
-import Menu from '../elements/Menu';
 import Container from 'muicss/lib/react/container';
 import { withRouter } from 'react-router-dom'
 
@@ -62,11 +63,15 @@ class Utopian extends Component {
 
 
     return (
-      <Container>
-        <div className="utopian-container">
-          {display}
-        </div>
-      </Container>
+      <div>
+        <Menu />
+        <Container>
+          <div className="utopian-container">
+            {display}
+          </div>
+        </Container>
+        <Footer />
+      </div>
     );
   }
 }
