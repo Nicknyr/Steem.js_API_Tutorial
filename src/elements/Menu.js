@@ -15,7 +15,7 @@ class Menu extends Component {
           <Link to='/trending'><Button variant="raised" color="accent">Trending</Button></Link>
           <Button variant="raised" color="accent">Cash</Button>
           <Link to='/utopianio'><Button variant="raised" color="accent">Utopian-io</Button></Link>
-          <Button variant="raised" color="accent">Weekly Picks</Button>
+          <Link to='/bestof'><Button variant="raised" color="accent">Weekly Picks</Button></Link>
         </Appbar>
       </div>
     );

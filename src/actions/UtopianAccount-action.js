@@ -9,8 +9,9 @@ export function fetchUtopianAccount() {
     const client = new Client('https://api.steemit.com')
 
     const utopianAccount = {
-      tag: 'nicknyr',
-      limit: 20
+      tag: 'utopian-io',
+      parent_author: 'utopian-io',
+      limit: 100
     }
 
 

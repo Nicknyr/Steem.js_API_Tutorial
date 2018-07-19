@@ -10,7 +10,8 @@ import {bindActionCreators, compose, applyMiddleware, createStore} from 'redux';
 import thunk from 'redux-thunk';
 import moment from 'moment';
 import Container from 'muicss/lib/react/container';
-import { withRouter } from 'react-router-dom'
+//import { withRouter } from 'react-router-dom'
+import logo from '../elements/utopian-logo.svg'
 
 
 class Utopian extends Component {
@@ -67,6 +68,9 @@ class Utopian extends Component {
         <Menu />
         <Container>
           <div className="utopian-container">
+            <h1>Top Utopian-io Posts from the Steem Blockchain</h1>
+            <hr/>
+            <img src={logo} id="logo"/>
             {display}
           </div>
         </Container>

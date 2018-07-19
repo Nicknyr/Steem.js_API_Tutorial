@@ -13,7 +13,7 @@ import thunk from 'redux-thunk';
 import moment from 'moment';
 
 
-class UtopianAccount extends Component {
+class UtopianWeekly extends Component {
     componentDidMount() {
       this.props.fetchUtopianAccount();
     }
@@ -21,8 +21,6 @@ class UtopianAccount extends Component {
 
   render() {
   const utopian = Object.keys(this.props.data.utopianAccountPosts);
-
-  console.log(utopian);
 
   var author = jsonQuery('[**][author]', { data: this.props.data.utopianAccountPosts }).value
   var title = jsonQuery('[**][title]', { data: this.props.data.utopianAccountPosts }).value
@@ -33,12 +31,14 @@ class UtopianAccount extends Component {
   var cashoutTime = jsonQuery('[*][cashout_time]', { data: this.props.data.utopianAccountPosts }).value;
 
 
+  var re = /Weekly(?=Top)/;
+
    let display = utopian.map((post, i) => {
 
       return (
         // Ternary Operator filters out posts not made by utopian-io itself
         author[i] === 'utopian-io' ? (
-
+           re ? (
           <div className="utopian-items">
             <h3 className="author">
               <strong>Author:  </strong>
@@ -53,7 +53,7 @@ class UtopianAccount extends Component {
               {netVotes[i]}
             </p>
           </div>
-
+        ) : null
         ) : null
       )
     });
@@ -64,7 +64,7 @@ class UtopianAccount extends Component {
       <Menu />
       <Container>
         <div className="utopian-container">
-          <h1>Recent Posts Made by Utopian</h1>
+          <h1>Top Utopian Contributions by Week</h1>
           <hr/>
           <img src={logo} id="logo"/>
           {display}
@@ -87,4 +87,4 @@ const mapStateToProps = state => ({
   data: state.utopianAccountReducer
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(UtopianAccount);
+export default connect(mapStateToProps, mapDispatchToProps)(UtopianWeekly);
